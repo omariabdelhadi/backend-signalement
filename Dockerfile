@@ -7,4 +7,4 @@ RUN ./mvnw dependency:go-offline
 COPY src ./src
 RUN ./mvnw clean package -DskipTests
 EXPOSE 8033
-CMD ["java", "-jar", "target/backend-list1-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "target/Test10-0.0.1-SNAPSHOT.jar"]
