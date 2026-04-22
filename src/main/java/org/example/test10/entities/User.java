@@ -10,6 +10,7 @@ import org.example.test10.Enum.Roles;
 import java.util.List;
 
 @Entity
+@Table(name = "users")
 @Data
 @AllArgsConstructor @NoArgsConstructor
 public class User {
