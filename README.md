@@ -1,15 +1,15 @@
 # Signalement App : Backend
 
-API REST d'une application web de **signalement citoyen** avec un **agent IA adaptatif** dont les services dépendent du rôle de l'utilisateur.
+API REST d'une application web de **signalement citoyen**, avec gestion des rôles et authentification JWT.
 
-> **Dépôt frontend (Angular) :** [frontend-signalement](https://github.com/omariabdelhadi/frontend-signalement)
+> **Dépôts liés :** [frontend-signalement](https://github.com/omariabdelhadi/frontend-signalement) · [agent-signalement](https://github.com/omariabdelhadi/agent-signalement) (chatbot IA)
 
 ## Objectif
 
 - soumettre des signalements avec titre, description et pièces jointes ;
 - gérer les rôles et permissions (Administrateur / Utilisateur) ;
 - sécuriser l'accès par authentification JWT ;
-- proposer un agent IA dont les services varient selon le rôle.
+- fournir à l'agent IA les données dont il a besoin pour répondre.
 
 ## Technologies
 
@@ -18,7 +18,6 @@ API REST d'une application web de **signalement citoyen** avec un **agent IA ada
 | Langage | Java 21 |
 | Framework | Spring Boot, API REST |
 | Sécurité | Spring Security, JWT |
-| Agent IA | Spring AI / LangChain, OpenAI |
 | Base de données | PostgreSQL |
 | Build | Maven |
 
@@ -28,7 +27,6 @@ API REST d'une application web de **signalement citoyen** avec un **agent IA ada
 
 - JDK 21
 - PostgreSQL installé et démarré
-- Une clé API OpenAI
 
 ### 1. Récupérer le projet
 
@@ -47,20 +45,10 @@ Les tables sont créées automatiquement au premier démarrage. Adapte le nom d'
 
 ### 3. Démarrer l'application
 
-La clé OpenAI se configure par variable d'environnement, jamais dans le code.
-
-Sous Windows (PowerShell) :
-
-```powershell
-$env:OPENAI_API_KEY="votre_cle_openai"
-.\mvnw.cmd spring-boot:run
-```
-
-Sous Linux ou macOS :
-
 ```bash
-export OPENAI_API_KEY="votre_cle_openai"
 ./mvnw spring-boot:run
 ```
+
+Sous Windows : `mvnw.cmd spring-boot:run`
 
 L'API est disponible sur `http://localhost:8080`.
